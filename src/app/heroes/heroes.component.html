@@ -7,10 +7,16 @@
   </label>
 </div>
 <h2>My Heroes</h2>
+<!--<ul class="heroes">-->
+  <!--<li *ngFor="let hh of hero3" [class.selected]="hh === selectedHero" (click)="onSelect(hh)">-->
+    <!--<span class="badge">{{hh.id}}</span>  {{hh.name}}-->
+  <!--</li>-->
+<!--</ul>-->
 <ul class="heroes">
-  <li *ngFor="let hh of hero3" [class.selected]="hh === selectedHero" (click)="onSelect(hh)">
-    <span class="badge">{{hh.id}}</span>  {{hh.name}}
+  <li *ngFor="let hh2 of heros">
+    <a routerLink="/herodetail/{{hh2.id}}">
+      <span class="badge">{{hh2.id}}</span>  {{hh2.name}}
+    </a>
   </li>
 </ul>
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
-
+<!--<app-hero-detail [hero]="selectedHero"></app-hero-detail>-->

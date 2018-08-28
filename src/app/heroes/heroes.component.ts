@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HEROES } from '../mokedata-heroes';
+import { HeroService} from "../hero.service";
 
 @Component({
   selector: 'app-heroes',
@@ -15,14 +16,20 @@ export class HeroesComponent implements OnInit {
   };
   hero3 = HEROES;
   selectedHero :Hero ;
+  heros:Hero[];
   onSelect(hero : Hero) : void{
     this.selectedHero=hero;
   }
-  constructor() {
+  getHeros():void{
+    this.heroService.getHeros().subscribe(heros=>this.heros=heros);
+
+  }
+  constructor(private heroService : HeroService) {
 
   }
 
   ngOnInit() {
+    this.getHeros();
   }
 
 }
